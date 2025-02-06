@@ -21,7 +21,6 @@ export default function Home() {
         <p className="text-white text-3xl" >Click count: {click} </p>
         <p className="text-white text-3xl ml-2">{click == true ? ner:""}</p>
       </div>
-  <p>Anand</p>
       
     </div>
   );
