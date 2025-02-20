@@ -1,27 +1,62 @@
-import { Geist, Geist_Mono } from "next/font/google";
-import React , {useState} from "react";
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export default function Home() {
-  const [click, setClick] = useState();
-  let ner = "  Anand";
-  return (
-    // REACT USESTATE HOOK 
-    <div className="w-full h-[1000px] bg-black flex justify-center items-center flex-col">
-      <button className="text-white border-white border-2 rounded-lg p-2 mb-5 text-2xl shadow-lg shadow-cyan-500/50" onClick={() => setClick((ner) => !ner)}>CLICK</button>
-      <div className="flex flex-row">
-        <p className="text-white text-3xl" >Click count: {click} </p>
-        <p className="text-white text-3xl ml-2">{click == true ? ner:""}</p>
-      </div>
-      <p>Anand</p>
-    </div>
-  );
+import React,{ useState } from "react"; 
+const useStateTask = () => {
+    const [color , setColor] = useState("black");
+    return(
+        <div className = {`flex flex-col justify-center items-center space-x-4 w-full h-screen bg-${color}-800`}>
+            <p>Өнгө солих</p>
+            {color == "red" ? (
+              <>
+              <button className="border rounded-2xl flex bg-red-800 w-23 py-4 px-6 m-5 h-10 justify-center items-center"
+              onClick={() => {
+                  setColor( color == "red" ? "black" : "red");
+                  
+              }}>
+                  Улаан
+              </button>
+              </>
+            ) : color == "green" ?(
+              <><button className="border rounded-2xl flex bg-green-800 w-23 py-4 px-6 m-5 justify-center items-center h-10"
+              onClick={() => {
+                  setColor(color == "green" ? "black" : "green");
+                  
+              }}>
+                  Ногоон
+              </button></>
+            ):color == "blue"?(
+              <>
+            <button className="border rounded-2xl flex bg-blue-800 w-23 py-4 px-6 m-5 h-10 justify-center items-center"
+            onClick={() => {
+                setColor(color == "blue" ? "black" : "blue");
+                
+            }}>
+                Цэнхэр
+            </button></>
+            ):(
+              <><button className="border rounded-2xl flex bg-red-800 w-23 py-4 px-6 m-5 h-10 justify-center items-center"
+              onClick={() => {
+                  setColor("red");
+                  
+              }}>
+                  Улаан
+              </button>
+              <button className="border rounded-2xl flex bg-blue-800 w-23 py-4 px-6 m-5 h-10 justify-center items-center"
+              onClick={() => {
+                  setColor("blue");
+                  
+              }}>
+                  Цэнхэр
+              </button>
+              <button className="border rounded-2xl flex bg-green-800 w-23 py-4 px-6 m-5 justify-center items-center h-10"
+              onClick={() => {
+                  setColor("green");
+                  
+              }}>
+                  Ногоон
+              </button></>
+            )
 }
+        </div>
+    );
+};
+
+export default useStateTask;
