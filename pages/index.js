@@ -1,27 +1,23 @@
-import { Geist, Geist_Mono } from "next/font/google";
-import React , {useState} from "react";
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import React,{ useState } from "react"; 
+const useStateTask = () => {
+    const [ner, setClick] = useState("Suragch");
+    const [firstName, setFirstName] = useState('Suragch');
+    return(
+        <div className="bg-white h-screen flex justify-center">
+        <div className="mt-10 w-96 bg-white h-screen flex flex-row justify-center justify-evenly">
+            <p className="text-black">Name:</p>
+            <div className="p-0 border-2 border-black h-7 rounded-md w-29">
+                <input placeholder="Name" className="text-black" onChange={e => setFirstName(e.target.value)}/>
+            </div> 
+            <p className="text-black">Hi?</p>
+            {firstName === '' ? (
+            <p className="text-black">Suragch?</p>
+            ) : (
+            <p className="text-black">{firstName}?</p>
+            )} 
+        </div>
+        </div>
+    );
+};
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
-
-export default function Home() {
-  const [click, setClick] = useState();
-  let ner = "  Anand";
-  return (
-    // REACT USESTATE HOOK 
-    <div className="w-full h-[1000px] bg-black flex justify-center items-center flex-col">
-      <button className="text-white border-white border-2 rounded-lg p-2 mb-5 text-2xl shadow-lg shadow-cyan-500/50" onClick={() => setClick((ner) => !ner)}>CLICK</button>
-      <div className="flex flex-row">
-        <p className="text-white text-3xl" >Click count: {click} </p>
-        <p className="text-white text-3xl ml-2">{click == true ? ner:""}</p>
-      </div>
-      <p>Anand</p>
-    </div>
-  );
-}
+export default useStateTask;
