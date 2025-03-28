@@ -1,27 +1,95 @@
-import { Geist, Geist_Mono } from "next/font/google";
-import React , {useState} from "react";
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
+import { useState } from "react";
+import Link from "next/link";
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+const imageUrl = "/ungusolih.jpg";
+const imageUrl1 = "/name.jpg";
+const imageUrl2 = "/cards.jpg";
+const imageUrl3 = "/clickcounter.jpg";
+
+const dataB = [
+  {
+    id: 1,
+    name: "Өнгө солих",
+    image: imageUrl,
+    href: "/project1"
+  },
+  {
+    id: 2,
+    name: "Нэр өгөх",
+    image: imageUrl1,
+    href: "/project2"
+  },
+  {
+    id: 3,
+    name: "Ангийн карт",
+    image: imageUrl2,
+    href: "/project3"
+  },
+  {
+    id: 4,
+    name: "клик тоолох",
+    image: imageUrl3,
+    href: "/project4"
+  },
+]
 
 export default function Home() {
-  const [click, setClick] = useState();
-  let ner = "  Anand";
+  const [isColumn, setIsColumn] = useState(false);
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const filter = dataB.filter((item) => item.name.toLowerCase().includes(searchQuery.toLowerCase()))
+
+  console.log(filter);
+
   return (
-    // REACT USESTATE HOOK 
-    <div className="w-full h-[1000px] bg-black flex justify-center items-center flex-col">
-      <button className="text-white border-white border-2 rounded-lg p-2 mb-5 text-2xl shadow-lg shadow-cyan-500/50" onClick={() => setClick((ner) => !ner)}>CLICK</button>
-      <div className="flex flex-row">
-        <p className="text-white text-3xl" >Click count: {click} </p>
-        <p className="text-white text-3xl ml-2">{click == true ? ner:""}</p>
+    <div
+      className="h-fit w-screen pt-10 pb-10 flex flex-col items-center"
+      style={{ backgroundImage: "url('https://scontent.fuln2-2.fna.fbcdn.net/v/t39.30808-6/470779029_3825271924378339_6374582303721866372_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=hO4LMz5H8IIQ7kNvgFd7681&_nc_oc=AdlymBiLGWNC1kc6KcLlOeOqtkU__x7nuoLQJ-79cU_tBoKMdfGjNRHkPKWtX3Db1lw&_nc_zt=23&_nc_ht=scontent.fuln2-2.fna&_nc_gid=l8_8iTsVzqGw_mrSUCjqzA&oh=00_AYFvNFDHHiy6yNsjFzfVs4S_lFV78ny3U36vfPKeZPbRjg&oe=67EBDD5C')", backgroundSize: 'cover', backgroundPosition: 'center' ,backgroundAttachment: 'fixed'}}
+    >
+      <p className="text-4xl p-10 absolute top-1 left-1 p-4">Anand 11v</p> 
+      <div className="h-20"></div>
+      <div
+        className={`m-10 grid gap-10 transition-all duration-500 ease-in-out ${
+          isColumn ? "grid-cols-1" : "sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2"
+        }`}
+      >
+        {filter.length > 0 ? (
+          filter.map((element, index) => (
+            <div
+              key={index}
+              className={`shadow-[0_20px_50px_rgba(8,_112,_184,_0.7)] p-5 mb-10 flex flex-col border-3 border-solid border-blue-600 gap-5 rounded-xl 
+                 transform hover:scale-105 active:scale-95 group
+                ${isColumn ? "w-196 mx-auto w-x-400 flex-row" : "w-195"}`}
+            >
+              <a href={element.href}>
+                <div>
+                  <div className="flex flex-row justify-evenly pb-2">
+                    <p className="text-2xl text-white">{element.name}</p>
+                  </div>
+                </div>
+                <img
+                  src={element.image}
+                  className={`rounded-lg 
+                
+                ${isColumn ? "w-180 h-100 object-cover" : "w-180 h-100"}`}
+                />
+                <img
+                  src={element.image}
+                  className={`absolute inset-0 w-full h-full object-cover opacity-30 blur-md rounded-lg
+                ${isColumn ? "w-80 h-40 h-60 object-cover" : "w-80 h-40"}`}
+                />
+                <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-70 flex flex-col justify-center items-center text-white opacity-0 group-hover:opacity-90 rounded-lg">
+                  <p className="text-4xl">Enter</p>
+                </div>
+              </a>
+            </div>
+          ))
+        ) : (
+          <p className="text-white text-2xl text-center col-span-full">
+            No results found
+          </p>
+        )}
       </div>
-      <p>Anand</p>
     </div>
   );
 }
