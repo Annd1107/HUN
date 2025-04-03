@@ -46,7 +46,10 @@ export default function Home() {
       className="h-fit w-screen pt-10 pb-10 flex flex-col items-center"
       style={{ backgroundImage: "url('https://scontent.fuln2-2.fna.fbcdn.net/v/t39.30808-6/470779029_3825271924378339_6374582303721866372_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=hO4LMz5H8IIQ7kNvgFd7681&_nc_oc=AdlymBiLGWNC1kc6KcLlOeOqtkU__x7nuoLQJ-79cU_tBoKMdfGjNRHkPKWtX3Db1lw&_nc_zt=23&_nc_ht=scontent.fuln2-2.fna&_nc_gid=l8_8iTsVzqGw_mrSUCjqzA&oh=00_AYFvNFDHHiy6yNsjFzfVs4S_lFV78ny3U36vfPKeZPbRjg&oe=67EBDD5C')", backgroundSize: 'cover', backgroundPosition: 'center' ,backgroundAttachment: 'fixed'}}
     >
-      <p className="text-4xl p-10 absolute top-1 left-1 p-4">Anand 11v</p> 
+      <div className="p-10 w-screen absolute top-1 left-1 flex flex-row justify-between items-center">
+        <img src="https://nhs.edu.mn/favicon.ico" className="w-30"></img>
+        <p className="text-4xl justify-center">Anand 11v</p>
+      </div> 
       <div className="h-20"></div>
       <div
         className={`m-10 grid gap-10 transition-all duration-500 ease-in-out ${
