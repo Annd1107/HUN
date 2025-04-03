@@ -67,7 +67,7 @@ export default function Home() {
               <a href={element.href}>
                 <div>
                   <div className="flex flex-row justify-evenly pb-2">
-                    <p className="text-2xl text-white">{element.name}</p>
+                    <p className="text-2xl text-white bg-black/50 rounded-4xl">{element.name}</p>
                   </div>
                 </div>
                 <img
