@@ -44,13 +44,13 @@ export default function Home() {
   return (
     <div
       className="h-fit w-screen pt-10 pb-10 flex flex-col items-center"
-      style={{ backgroundImage: "url('https://scontent.fuln2-2.fna.fbcdn.net/v/t39.30808-6/470779029_3825271924378339_6374582303721866372_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=127cfc&_nc_ohc=hO4LMz5H8IIQ7kNvgFd7681&_nc_oc=AdlymBiLGWNC1kc6KcLlOeOqtkU__x7nuoLQJ-79cU_tBoKMdfGjNRHkPKWtX3Db1lw&_nc_zt=23&_nc_ht=scontent.fuln2-2.fna&_nc_gid=l8_8iTsVzqGw_mrSUCjqzA&oh=00_AYFvNFDHHiy6yNsjFzfVs4S_lFV78ny3U36vfPKeZPbRjg&oe=67EBDD5C')", backgroundSize: 'cover', backgroundPosition: 'center' ,backgroundAttachment: 'fixed'}}
     >
-      <div className="p-10 w-screen absolute top-1 left-1 flex flex-row justify-between items-center">
-        <img src="https://nhs.edu.mn/favicon.ico" className="w-30"></img>
-        <p className="text-4xl justify-center">Anand 11v</p>
-      </div> 
-      <div className="h-20"></div>
+      <div className="p-4 w-screen fixed top-0 left-0 flex flex-row justify-evenly items-center backdrop-blur-md border-b border-gray-300 z-50">
+        <img src="https://nhs.edu.mn/favicon.ico" className="w-30" alt="Logo" />
+        <p className="text-4xl text-white font-bold bg-black/50 p-4 rounded-4xl">Anand 11v</p>
+      </div>
+ 
+      <div className="h-30"></div>
       <div
         className={`m-10 grid gap-10 transition-all duration-500 ease-in-out ${
           isColumn ? "grid-cols-1" : "sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2"
