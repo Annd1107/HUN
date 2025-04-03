@@ -46,7 +46,7 @@ export default function Home() {
       className="h-fit w-screen pt-10 pb-10 flex flex-col items-center"
     >
       <div className="p-4 w-screen fixed top-0 left-0 flex flex-row justify-evenly items-center backdrop-blur-md border-b border-gray-300 z-50">
-        <img src="https://nhs.edu.mn/favicon.ico" className="w-30" alt="Logo" />
+        <img src="https://nhs.edu.mn/favicon.ico" className="w-20" alt="Logo" />
         <p className="text-4xl text-white font-bold bg-black/50 p-4 rounded-4xl">Anand 11v</p>
       </div>
  
