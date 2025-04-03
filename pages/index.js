@@ -50,7 +50,7 @@ export default function Home() {
         <p className="text-4xl text-white font-bold bg-black/50 p-4 rounded-4xl">Anand 11v</p>
       </div>
  
-      <div className="h-30"></div>
+      <div className="h-20"></div>
       <div
         className={`m-10 grid gap-10 transition-all duration-500 ease-in-out ${
           isColumn ? "grid-cols-1" : "sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2"
